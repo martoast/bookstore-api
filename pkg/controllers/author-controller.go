@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"bookstore-api/pkg/models"
+
 	"bookstore-api/pkg/utils"
 
 	"github.com/gorilla/mux"
@@ -78,8 +79,8 @@ func UpdateAuthor(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("error while parsing")
 	}
 	AuthorDetails, db := models.GetAuthorById(ID)
-	if updateAuthor.Name != "" {
-		AuthorDetails.Name = updateAuthor.Name
+	if updateAuthor.Publisher != "" {
+		AuthorDetails.Publisher = updateAuthor.Publisher
 	}
 
 	db.Save(&AuthorDetails)

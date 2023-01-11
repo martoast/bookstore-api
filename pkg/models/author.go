@@ -5,8 +5,9 @@ import (
 )
 
 type Author struct {
-	ID   uint   `json:"id"`
-	Name string `json:"name"`
+	ID        uint   `json:"id" gorm:"primary_key"`
+	Publisher string `json:"publisher"`
+	UserID    uint   `json:"user_id" gorm:"foreignkey:UserID"`
 }
 
 func GetAllAuthors() []Author {
